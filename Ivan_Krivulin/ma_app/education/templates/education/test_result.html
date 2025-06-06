@@ -1,0 +1,25 @@
+{% extends 'education/main.html' %}
+
+{% block content %}
+
+<h1>Результаты теста: {{ test.title }}</h1>
+
+{% if score is not None %}
+    <p>Ваш результат: <strong>{{ score }}</strong> из <strong>{{ total_questions }}</strong></p>
+
+    {% if score == total_questions %}
+        <p>Поздравляем! Вы ответили на все вопросы правильно!</p>
+    {% elif score >= half_total_questions %}
+        <p>Отличный результат! Так держать!</p>
+    {% else %}
+        <p>Неплохо, но есть над чем поработать. Попробуйте еще раз!</p>
+    {% endif %}
+
+{% else %}
+    <p>Не удалось получить результаты теста. Пожалуйста, попробуйте пройти тест еще раз.</p>
+{% endif %}
+
+<p><a href="{% url 'education:course_list' %}">Вернуться к списку курсов</a></p>
+<p><a href="{% url 'education:test_attempt' test.pk %}">Пройти тест еще раз</a></p>
+
+{% endblock %}

@@ -1,471 +1,483 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCB QA Pro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCB QA Pro</title>
 </head>
 <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #222;
-    color: white;
-    padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 15px;
 }
 
 .logo h1 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .search {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .search input {
-    padding: 5px;
-    border: none;
-    border-radius: 3px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
 }
 
 .search button {
-    margin-left: 5px;
-    padding: 5px;
-    cursor: pointer;
+  margin-left: 5px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .login-btn {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
 }
 
 .login-btn:hover {
-    background-color: #777;
+  background-color: #777;
 }
 
 .main-content {
-    display: flex;
-    flex: 1;
+  display: flex;
+  flex: 1;
 }
 
 .sidebar {
-    background-color: #444;
-    color: white;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  background-color: #444;
+  color: white;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .left button {
-    background: none;
-    color: white;
-    border: none;
-    padding: 10px;
-    text-align: left;
-    cursor: pointer;
+  background: none;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
 }
 
 .left button:hover {
-    background-color: #666;
+  background-color: #666;
 }
 
 main {
-    flex: 1;
-    padding: 20px;
-    background-color: white;
+  flex: 1;
+  padding: 20px;
+  background-color: white;
 }
 
 .right {
-    width: 250px;
-    padding: 10px;
-    background-color: #444;
+  width: 250px;
+  padding: 10px;
+  background-color: #444;
 }
 
 .login-box, .alert {
-    padding: 10px;
-    background-color: #ddd;
-    margin-bottom: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  margin-bottom: 10px;
 }
 
 .alert {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
 
 .news-list .news-item {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .news-list .news-item h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .news-list .news-item a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #007bff;
 }
 
 .news-detail h2 {
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
 }
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 section.provision-list,
 section.boards-list {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 section h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    color: #222;
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  color: #222;
 }
 
 .card {
-    background-color: #f9f9f9;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s ease;
+  background-color: #f9f9f9;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
 }
 
 .card:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .card h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .card a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #007bff;
 }
 
 .card a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .card p {
-    margin: 0;
-    color: #333;
+  margin: 0;
+  color: #333;
 }
 
 section.provision-list,
 section.boards-list {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 section h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    color: #222;
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  color: #222;
 }
 
 .card {
-    background-color: #f9f9f9;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s ease;
+  background-color: #f9f9f9;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
 }
 
 .card:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .card h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .card a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #007bff;
 }
 
 .card a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .card p {
-    margin: 0;
-    color: #333;
+  margin: 0;
+  color: #333;
 }
 
 main {
-    background: linear-gradient(to bottom, #f9fafe, #eef1f5);
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0 25px rgba(0, 123, 255, 0.1);
-    font-family: "Segoe UI", sans-serif;
-    animation: fadeIn 0.5s ease-in-out;
+  background: linear-gradient(to bottom, #f9fafe, #eef1f5);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 main h1 {
-    font-size: 34px;
-    margin-bottom: 25px;
-    color: #0a2a52;
-    border-bottom: 3px solid #007bff;
-    padding-bottom: 12px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+  font-size: 34px;
+  margin-bottom: 25px;
+  color: #0a2a52;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 main h2 {
-    font-size: 26px;
-    margin-top: 40px;
-    color: #0056b3;
-    position: relative;
+  font-size: 26px;
+  margin-top: 40px;
+  color: #0056b3;
+  position: relative;
 }
 
 main h2::before {
-    content: "◆";
-    position: absolute;
-    left: -25px;
-    color: #007bff;
+  content: "◆";
+  position: absolute;
+  left: -25px;
+  color: #007bff;
 }
 
 main h3 {
-    font-size: 20px;
-    margin-top: 25px;
-    color: #333;
-    font-weight: bold;
+  font-size: 20px;
+  margin-top: 25px;
+  color: #333;
+  font-weight: bold;
 }
 
 main p {
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-    color: #333;
-    background-color: #ffffffd1;
-    padding: 10px 15px;
-    border-left: 4px solid #007bff;
-    border-radius: 6px;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #333;
+  background-color: #ffffffd1;
+  padding: 10px 15px;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
 }
 
 main ul {
-    margin-left: 25px;
-    margin-bottom: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
 }
 
 main ul li {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #222;
-    padding-left: 5px;
-    position: relative;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #222;
+  padding-left: 5px;
+  position: relative;
 }
 
 main ul li::before {
-    content: "▶";
-    position: absolute;
-    left: -20px;
-    color: #007bff;
+  content: "▶";
+  position: absolute;
+  left: -20px;
+  color: #007bff;
 }
 
 pre.code {
-    background-color: #212733;
-    color: #e0e0e0;
-    padding: 15px 20px;
-    border-left: 6px solid #00bcd4;
-    font-family: "Fira Code", monospace;
-    border-radius: 8px;
-    overflow-x: auto;
-    margin: 20px 0;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  background-color: #212733;
+  color: #e0e0e0;
+  padding: 15px 20px;
+  border-left: 6px solid #00bcd4;
+  font-family: "Fira Code", monospace;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 20px 0;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
 }
 
 .code code {
-    font-family: "Fira Code", monospace;
-    color: #f8f8f2;
+  font-family: "Fira Code", monospace;
+  color: #f8f8f2;
 }
 
 .footer {
-    margin-top: 60px;
-    font-size: 15px;
-    color: #777;
-    text-align: center;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
+  margin-top: 60px;
+  font-size: 15px;
+  color: #777;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
 }
 
 /* Анимация появления */
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 
 /* Кнопки - для действий, форм, и ссылок */
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #007bff, #00bcd4);
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff, #00bcd4);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 .button:hover {
-    background: linear-gradient(135deg, #0056b3, #0097a7);
-    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.5);
-    transform: translateY(-2px);
+  background: linear-gradient(135deg, #0056b3, #0097a7);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.5);
+  transform: translateY(-2px);
 }
 
 /* Карточки для блоков, инфы, списков */
 .card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* Табы или переключатели */
 .tab {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-right: 10px;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    color: #007bff;
-    transition: 0.3s ease;
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  color: #007bff;
+  transition: 0.3s ease;
 }
 
 .tab.active, .tab:hover {
-    border-color: #007bff;
-    font-weight: bold;
+  border-color: #007bff;
+  font-weight: bold;
 }
 
 /* Input-стиль — в случае форм */
 input[type="text"], input[type="email"], input[type="password"], textarea {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: 100%;
-    margin-bottom: 15px;
-    transition: 0.3s;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 15px;
+  transition: 0.3s;
 }
 
 input:focus, textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0,123,255,0.4);
-    outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.4);
+  outline: none;
 }
 
 </style>
 <body>
-    <div class="container">
-       <header>
+<div class="container">
+  <header>
     <div class="logo">
-        <a href="{% url 'education:main' %}" style="text-decoration: none; color: inherit;">
-            <h1>PCB QA Pro</h1>
-            <p>Плато-контроль ПНИЭИ</p>
-        </a>
+      <a href="{% url 'education:main' %}" style="text-decoration: none; color: inherit;">
+        <h1>PCB QA Pro</h1>
+        <p>Плато-контроль ПНИЭИ</p>
+      </a>
     </div>
     <div class="search">
-        <input type="text" placeholder="Поиск">
-        <button>🔍</button>
+      {# Форма поиска будет динамически определять куда отправлять запрос #}
+      <form action="{% if current_app == 'courses' %}{% url 'education:course_list' %}{% elif current_app == 'contests' %}{% url 'education:contest_list' %}{% else %}/{% endif %}"
+            method="get">
+        <input type="text" name="q" placeholder="Поиск..." value="{{ request.GET.q|default:'' }}">
+      </form>
     </div>
-    {% if user.is_authenticated %}
-        <a href="{% url 'education:profile' %}">
-            <button>{{ user.username }}</button>
-        </a>
- <a href="{% url 'education:logout' %}">
-           <button type="submit" class="login-btn" style="margin-left: 10px; background-color: #b33a3a;">Выйти</button>
-</a>
-    {% else %}
-        <a href="{% url 'education:login' %}">
-            <button class="login-btn">Войти</button>
-        </a>
-    {% endif %}
-</header>
-
-
-        <div class="main-content">
-            <nav class="sidebar left">
-                <a href="{% url 'education:provision' %}"><button>📦 Provision</button></a>
-                <a href="{% url 'education:schemes' %}"><button>📜 Схемы плат</button></a>
-                <a href="{% url 'education:tutorials' %}"><button>🎓 Курсы</button></a>
-                <a href="{% url 'education:contest_list' %}"><button>🏆 Конкурсы</button></a>
-            </nav>
-
-            <main>
-                {% block content %}
-                <h1>
-                    Новости
-                </h1>
-                <section class="news-list">
-            {% for new in news %}
-                <article class="news-item">
-                    <h2><a href="{% url 'education:news_detail' new.id %}">{{ new.title }}</a></h2>
-                    <p>{{ new.short_description }}</p>
-                    <span class="date">{{ new.pub_date }}</span>
-                </article>
-            {% endfor %}
-                    {% endblock %}
-            </main>
-
-            <aside class="sidebar right">
-                <div class="login-box">
-                    Войдите в систему, чтобы получить доступ к личному кабинету.
-                </div>
-                <div class="alert">
-                    <strong>Технические работы на сайте.</strong>
-                    <p>В ночь с 12 января на 13 января сайт будет недоступен из-за технических работ.</p>
-                </div>
-            </aside>
-        </div>
+    <div class="user">
+      {% if user.is_authenticated %}
+      <a href="{% url 'education:profile' %}">
+        <button>{{ user.username }}</button>
+      </a><a href="{% url 'education:logout' %}">
+      <button type="submit" class="login-btn" style="margin-left: 10px; background-color: #b33a3a;">Выйти</button>
+    </a>
+      {% else %}
+      <a href="{% url 'education:login' %}">
+        <button class="login-btn">Войти</button>
+      </a>
+      {% endif %}
     </div>
+  </header>
+
+
+  <div class="main-content">
+    <nav class="sidebar left">
+      <a href="{% url 'education:provision' %}">
+        <button>📦 Provision</button>
+      </a>
+      <a href="{% url 'education:schemes' %}">
+        <button>📜 Схемы плат</button>
+      </a>
+      <a href="{% url 'education:course_list' %}">
+        <button>🎓 Курсы</button>
+      </a> {# Изменил на course_list #}
+      <a href="{% url 'education:contest_list' %}">
+        <button>🏆 Конкурсы</button>
+      </a>
+    </nav>
+
+    <main>
+      {% block content %}
+      {# Здесь будет отображаться контент конкретной страницы #}
+      <h1>Новости</h1>
+      <section class="news-list">
+        {% for new in news %}
+        <article class="news-item">
+          <h2><a href="{% url 'education:news_detail' new.id %}">{{ new.title }}</a></h2>
+          <p>{{ new.short_description }}</p>
+          <span class="date">{{ new.pub_date }}</span>
+        </article>
+        {% endfor %}
+      </section>
+      {% endblock %}
+    </main>
+
+    <aside class="sidebar right">
+      <div class="login-box">
+        Войдите в систему, чтобы получить доступ к личному кабинету.
+      </div>
+      <div class="alert">
+        <strong>Технические работы на сайте.</strong>
+        <p>В ночь с 12 января на 13 января сайт будет недоступен из-за технических работ.</p>
+      </div>
+    </aside>
+  </div>
+</div>
 </body>
 </html>

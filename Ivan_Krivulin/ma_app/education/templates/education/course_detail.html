@@ -1,0 +1,40 @@
+{% extends 'education/main.html' %}
+
+{% block content %}
+<h1>{{ course.title }}</h1>
+<p>{{ course.description }}</p>
+
+---
+
+<h2>Материалы курса:</h2>
+{% if materials %}
+    <ul>
+        {% for material in materials %}
+            <li>
+                <a href="{% url 'education:material_detail' material.pk %}">{{ material.title }}</a>
+                {% if material.file %}
+                    (<a href="{{ material.file.url }}" target="_blank">Скачать</a>)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Материалов для этого курса пока нет.</p>
+{% endif %}
+
+---
+
+<h2>Тесты курса:</h2>
+{% if tests %}
+    <ul>
+        {% for test in tests %}
+            <li>
+                <a href="{% url 'education:test_attempt' test.pk %}">{{ test.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Тестов для этого курса пока нет.</p>
+{% endif %}
+
+{% endblock %}

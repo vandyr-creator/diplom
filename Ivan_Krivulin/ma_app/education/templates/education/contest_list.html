@@ -1,15 +1,38 @@
 {% extends 'education/main.html' %}
-<main>
-    {% block content %}
-        <h2>Текущие и прошедшие конкурсы</h2>
-        {% for contest in contests %}
-            <article>
-                <h3><a href="{% url 'education:contest_detail' contest.id %}">{{ contest.title }}</a></h3>
-                <p>{{ contest.description }}</p>
-                <p><strong>Дата:</strong> {{ contest.start_date }} - {{ contest.end_date }}</p>
-                <p><strong>Приз:</strong> {{ contest.prize }}</p>
-            </article>
-        {% endfor %}
-    {% endblock %}
-    </main>
 
+{% block content %}
+    <h1>Все конкурсы</h1>
+
+    {% if contests %}
+        <ul>
+            {% for contest in contests %}
+                <li>
+                    <a href="{% url 'education:contest_detail' contest.pk %}">{{ contest.title }}</a> {# Предполагается, что у тебя есть contest_detail #}
+                    <p>{{ contest.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {# Опционально: пагинация, если ты ее добавил #}
+        {% if is_paginated %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Предыдущая</a>
+                {% endif %}
+
+                <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Следующая</a>
+                {% endif %}
+            </div>
+        {% endif %}
+
+    {% else %}
+        <p>Конкурсов пока нет.</p>
+        {% if request.GET.q %}
+            <p>По вашему запросу "{{ request.GET.q }}" ничего не найдено.</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

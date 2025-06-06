@@ -1,0 +1,17 @@
+{% extends 'education/main.html' %}
+<main>
+  {% block content %}
+<h1>Все курсы</h1>
+<ul>
+    {% for course in courses %}
+        <li>
+            <a href="{% url 'education:course_detail' course.pk %}">{{ course.title }}</a>
+            <p>{{ course.description }}</p>
+        </li>
+    {% empty %}
+        <li>Курсов пока нет.</li>
+    {% endfor %}
+</ul>
+  {% endblock %}
+</main>
+
