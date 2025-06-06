@@ -1,0 +1,62 @@
+{% extends 'education/main.html' %}
+
+
+{% block content %}
+<main>
+
+
+    <h1>JTAG Provisioning</h1>
+    <p>JTAG (Joint Test Action Group) — это стандартный интерфейс для тестирования, отладки и программирования микросхем
+        и устройств.</p>
+
+    <h2>Что такое JTAG Provisioning?</h2>
+    <p>JTAG Provisioning — это процесс настройки и программирования устройств с использованием JTAG-интерфейса. Он
+        применяется для загрузки прошивок, защиты чипов, тестирования схем и других задач.</p>
+
+    <h2>Основные инструменты</h2>
+    <ul>
+        <li><strong>OpenOCD</strong> — инструмент для работы с JTAG и SWD.</li>
+        <li><strong>SEGGER J-Link</strong> — отладчик с поддержкой JTAG и SWD.</li>
+        <li><strong>ARM DAPLink</strong> — программирование ARM-микроконтроллеров.</li>
+    </ul>
+
+    <h2>Применение</h2>
+    <p>JTAG используется в:</p>
+    <ul>
+        <li>Отладке микроконтроллеров</li>
+        <li>Программировании FPGA</li>
+        <li>Защите от копирования и взлома</li>
+    </ul>
+
+    <h2>Обучение JTAG Provisioning</h2>
+    <p>Для работы с JTAG необходимо освоить несколько ключевых этапов:</p>
+
+    <h3>1. Установка OpenOCD</h3>
+    <p>OpenOCD — это один из самых популярных инструментов для работы с JTAG. Установите его с помощью:</p>
+    <pre class="code">sudo apt install openocd</pre>
+
+    <h3>2. Подключение JTAG-адаптера</h3>
+    <p>Подключите JTAG-адаптер к вашей плате и проверьте его наличие:</p>
+    <pre class="code">lsusb</pre>
+
+    <h3>3. Конфигурация OpenOCD</h3>
+    <p>Создайте конфигурационный файл <code>openocd.cfg</code> и укажите параметры подключения:</p>
+    <pre class="code">
+interface ft2232
+transport select jtag
+target create my_target cpu -chain-position 0
+        </pre>
+
+    <h3>4. Запуск OpenOCD</h3>
+    <p>Запустите OpenOCD и подключитесь к устройству:</p>
+    <pre class="code">openocd -f openocd.cfg</pre>
+
+    <h3>5. Доступ к GDB</h3>
+    <p>После запуска OpenOCD можно подключиться к процессору с помощью GDB:</p>
+    <pre class="code">arm-none-eabi-gdb
+(gdb) target remote localhost:3333</pre>
+
+    <div class="footer">&copy; 2025 JTAG Learning</div>
+
+</main>
+    {% endblock %}

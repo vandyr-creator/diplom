@@ -1,0 +1,39 @@
+
+{% extends 'education/main.html' %}
+<style>
+    article {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+article h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+article p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+article pre {
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+}
+</style>
+    <main>
+        {% block content %}
+        <article>
+            <h2>{{ board.name }}</h2>
+            <p><strong>Производитель:</strong> {{ board.manufacturer }}</p>
+            <p><strong>Описание:</strong> {{ board.description }}</p>
+            <p><strong>Характеристики:</strong></p>
+            <pre>{{ board.specifications }}</pre>
+        </article>
+        {% endblock %}
+    </main>

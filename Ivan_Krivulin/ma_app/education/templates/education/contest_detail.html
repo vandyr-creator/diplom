@@ -1,0 +1,11 @@
+{% extends 'education/main.html' %}
+    <main>
+        {% block content %}
+        <article>
+            <h2>{{ contest.title }}</h2>
+            <p><strong>Дата:</strong> {{ contest.start_date }} - {{ contest.end_date }}</p>
+            <p><strong>Приз:</strong> {{ contest.prize }}</p>
+            <p>{{ contest.description }}</p>
+        </article>
+        {% endblock %}
+    </main>

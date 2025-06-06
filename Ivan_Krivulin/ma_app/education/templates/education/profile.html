@@ -1,0 +1,40 @@
+{% extends 'education/main.html' %}
+<style>
+    .profile-card {
+    background-color: #f9f9f9;
+    padding: 25px 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.profile-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    color: #222;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.profile-info strong {
+    color: #555;
+}
+
+</style>
+{% block content %}
+<section class="profile-card">
+    <h2>Личный кабинет</h2>
+    <div class="profile-info">
+        <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+        <p><strong>Имя:</strong> {{ user.first_name|default:"—" }}</p>
+        <p><strong>Фамилия:</strong> {{ user.last_name|default:"—" }}</p>
+        <p><strong>Email:</strong> {{ user.email|default:"—" }}</p>
+    </div>
+</section>
+{% endblock %}

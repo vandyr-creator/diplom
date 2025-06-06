@@ -1,0 +1,15 @@
+{% extends 'education/main.html' %}
+<main>
+    {% block content %}
+        <h2>Текущие и прошедшие конкурсы</h2>
+        {% for contest in contests %}
+            <article>
+                <h3><a href="{% url 'education:contest_detail' contest.id %}">{{ contest.title }}</a></h3>
+                <p>{{ contest.description }}</p>
+                <p><strong>Дата:</strong> {{ contest.start_date }} - {{ contest.end_date }}</p>
+                <p><strong>Приз:</strong> {{ contest.prize }}</p>
+            </article>
+        {% endfor %}
+    {% endblock %}
+    </main>
+

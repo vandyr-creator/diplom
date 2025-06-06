@@ -1,0 +1,10 @@
+{% extends 'education/main.html' %}
+<main>
+    {% block content %}
+        <article class="news-detail">
+            <h2>{{ new.title }}</h2>
+            <span class="date">{{ new.pub_date }}</span>
+            <p>{{ new.content }}</p>
+        </article>
+    {% endblock %}
+    </main>

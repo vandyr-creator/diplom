@@ -1,0 +1,17 @@
+{% extends 'education/main.html' %}
+    <main>
+        {% block content %}
+        <div class="nav">
+        <nav>
+            <a href="{% url 'education:main' %}">Назад</a>
+        </nav>
+            </div>
+        <h1>Регистрация</h1>
+        <form method="POST">
+        {% csrf_token %}
+
+            {{ form.as_p }}
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+        {% endblock %}
+    </main>

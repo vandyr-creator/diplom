@@ -1,0 +1,11 @@
+{% extends 'education/main.html' %}
+<main>
+    {% block content %}
+    <article>
+        <h2>{{ provision.title }}</h2>
+        <span class="date">{{ provision.pub_date }}</span>
+        <p>{{ provision.content }}</p>
+    </article>
+    {% endblock %}
+</main>
+

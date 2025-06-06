@@ -1,0 +1,23 @@
+{% extends 'education/main.html' %}
+
+{% block content %}
+<section class="provision-list">
+    <h2>Статьи о Provision</h2>
+    {% for provision in provisions %}
+        <article class="card">
+            <h3><a href="{% url 'education:provision_detail' provision.id %}">{{ provision.title }}</a></h3>
+            <p>{{ provision.short_description }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+<section class="boards-list">
+    <h2>Платы</h2>
+    {% for board in boards %}
+        <article class="card">
+            <h3><a href="{% url 'education:board_detail' board.id %}">{{ board.name }}</a></h3>
+            <p>Производитель: {{ board.manufacturer }}</p>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}
